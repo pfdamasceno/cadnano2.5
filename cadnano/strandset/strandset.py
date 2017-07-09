@@ -279,6 +279,15 @@ class StrandSet(CNObject):
         return len(self.strand_heap)
     # end def
 
+    def indexOfLeftmostNonemptyBase(self):
+        """Returns the low base_idx of the first strand, or 0."""
+        sh = self.strand_heap
+        if len(sh) > 0:
+            return sh[0].lowIdx()
+        else:
+            return 0
+    # end def
+
     ### PUBLIC METHODS FOR EDITING THE MODEL ###
     def createStrand(self, base_idx_low, base_idx_high,
                      color=None, use_undostack=True):
