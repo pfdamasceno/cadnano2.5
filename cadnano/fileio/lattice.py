@@ -44,22 +44,22 @@ class HoneycombDnaPart(object):
     @staticmethod
     def legacyLatticeCoordToPositionXY(radius, row, column, scale_factor=1.0):
         """make sure radius is a float"""
-        x = (column-1)*radius*root3
+        x = (column-1)*(radius+0.4)*root3
         if HoneycombDnaPart.isEvenParity(row, column):   # odd parity
-            y = -row*radius*3 + radius
+            y = -row*(radius+0.4)*3 + (radius+0.4)
         else:                               # even parity
-            y = -row*radius*3
+            y = -row*(radius+0.4)*3
         return scale_factor*x, scale_factor*y
     # end def
 
     @staticmethod
     def latticeCoordToPositionXY(radius, row, column, scale_factor=1.0):
         """make sure radius is a float"""
-        x = column*radius*root3
+        x = column*(radius+0.4)*root3 + 2.0
         if HoneycombDnaPart.isOddParity(row, column):   # odd parity
-            y = row*radius*3 + radius
+            y = row*(radius+0.4)*3 + (radius+0.4)
         else:                               # even parity
-            y = row*radius*3
+            y = row*(radius+0.4)*3
         return scale_factor*x, scale_factor*y
     # end def
 
